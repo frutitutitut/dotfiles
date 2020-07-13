@@ -1,0 +1,161 @@
+[colors]
+background = #151515
+foreground = #d8dee9
+color1 = #6c757d 
+
+[bar/mybar]
+override-redirect = false 
+bottom = false
+fixed-center = true
+width = 100%
+height = 26
+background = ${colors.background}
+foreground = ${colors.foreground}
+radius = 0.0
+line-size = 0
+line-color = #f00
+;offset-y = 12
+;offset-x = 32%
+wm-restack = bspwm
+
+font-0 = xos4 Terminus:style=Regular:pixelsize=8;2
+font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=10;2
+font-2 = Font Awesome Brands Regular:style=Solid:pixelsize=10;2
+font-3 = GoogleSans Medium:size=17;4
+font-4 = FuraMono Nerd Font:size=17;4
+font-5 = "Ubuntu Condensed:size=10;2"
+font-6 = "icomoon\-feather:size=10;2"
+
+modules-center = xwindow
+modules-left =  bspwm xkeyboard pulseaudio
+modules-right = filesystem fshome cpu memory network temp date
+
+; Position of the system tray window
+tray-position = right
+tray-maxsize = 15
+tray-background = ${colors.background}
+;tray-offset-x = 0
+;tray-offset-y = 0
+; Pad the sides of each tray icon
+tray-padding = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+format-volume = <ramp-volume> <label-volume>
+label-muted =  Muted
+label-muted-foreground = #666
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+
+[module/temp]
+type = internal/temperature
+interval = 3
+format-padding = 2
+hwmon-path = /sys/class/hwmon/hwmon0/temp1_input
+base-temperature = 20
+warn-temperature = 80
+format = <label>
+format-warn = <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-padding = 2
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-padding = 2
+label = %percentage_used%%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+label-layout = %layout%
+format-padding = 2
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+label-padding = 2
+
+[module/bspwm]
+type = internal/bspwm
+;format = <label-state> <label-mode>
+
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.color1}
+label-focused = %index%
+label-focused-padding = 2
+label-occupied = %index%
+label-occupied-padding = 2
+label-empty = 
+label-empty-padding = 2
+
+[settings]
+label-focused-underline= ${colors.background}
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+pseudo-transparency = true
+
+[module/date]
+type = internal/date
+interval = 1.0
+time = %H:%M
+label = "%time% "
+label-padding = 2
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+
+format-charging-padding = 1
+format-discharging-padding = 1
+
+[module/network]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+format-connected-padding = 2
+unknown-as-up = true
+accumulate-stats = true
+format-connected = <label-connected>
+label-connected = %downspeed:7%
+
+[module/fshome]
+type = internal/fs
+interval = 25
+mount-0 = /home
+label-mounted = %{F#ffffff}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+format-padding = 2
+format-mounted-padding = 2
+format-unmounted-padding = 2
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{F#ffffff}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+format-mounted-padding = 2
+format-unmounted-padding = 2

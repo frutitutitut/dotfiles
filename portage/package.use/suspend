@@ -1,0 +1,3 @@
+>=dev-libs/libgcrypt-1.8.5 static-libs
+>=dev-libs/libgpg-error-1.36 static-libs
+>=dev-libs/lzo-2.10 static-libs

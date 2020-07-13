@@ -1,0 +1,12 @@
+# Gentoo
+
+UUID=dad3a20c-8ae3-4268-b6ad-2f6b49cf256a	/boot		ext2		defaults,noatime	0 1
+UUID=b3365b54-a9c9-4589-b71e-c1f3505ea569	none		swap		sw			0 0
+UUID=8c0498b0-18e2-444b-b802-52275d6a33f7	/		ext4		rw,relatime		0 1
+UUID=3089d49a-54b2-4b54-b718-424402a8c7af	/home		ext4		rw,relatime		0 2
+
+# Arch Linux
+
+UUID=85efa00b-7039-4502-9fe4-3649686d851e	/archboot	ext2		defaults,noatime	0 1
+UUID=58e013b9-2e43-4728-a06b-f203a0bac49e	/archroot	ext4		rw,relatime		0 1
+UUID=7e646d7c-ae59-4d43-a848-65fe407a253c	/archhome	ext4		rw,relatime		0 2

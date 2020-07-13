@@ -1,0 +1,6 @@
+>=media-plugins/alsa-plugins-1.2.2 speex
+>=x11-libs/libdrm-2.4.100 libkms
+>=media-libs/mesa-20.0.8 xa
+virtual/linux-sources firmware
+app-emulation/vmware-workstation vix macos-guests vmware-tools-linux vmware-tools-windows ovftool
+
